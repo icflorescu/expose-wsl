@@ -1,0 +1,29 @@
+{
+  "name": "expose-wsl",
+  "version": "0.0.1",
+  "description": "The simplest way to expose your WSL to the local network",
+  "main": "run.js",
+  "type": "module",
+  "engines": {
+    "node": ">=14.8.0"
+  },
+  "bin": {
+    "expose-wsl": "run.js"
+  },
+  "keywords": [
+    "WSL",
+    "CLI",
+    "nwtwork",
+    "workflow",
+    "devtools"
+  ],
+  "author": {
+    "name": "Ionut-Cristian Florescu",
+    "email": "ionut.florescu@gmail.com",
+    "url": "https://github.com/icflorescu"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.11.13"
+  }
+}
