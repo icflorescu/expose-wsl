@@ -1,6 +1,6 @@
 {
   "name": "expose-wsl",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "The simplest way to expose your WSL to the local network",
   "main": "run.js",
   "type": "module",

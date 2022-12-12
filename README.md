@@ -10,7 +10,7 @@ The simplest way to expose your WSL to the local network.
 Simply run the following command in your WSL terminal:
 
 ```bash
-$ npx expose-wsl
+npx expose-wsl
 ```
 
 ## Why?
