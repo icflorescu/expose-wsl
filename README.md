@@ -12,7 +12,7 @@
 
 ## TL;DR
 
-No installation required. Simply run the following command in your WSL terminal:
+No installation required. Simply run the following command in your WSL terminal **before starting your applications**:
 
 ```bash
 npx expose-wsl
