@@ -5,6 +5,8 @@
 
 The simplest way to expose apps running on WSL to local network devices.
 
+![expose-wsl](https://user-images.githubusercontent.com/581999/207396848-6092d5f9-ebcd-4d21-8c2c-48009c3ec721.png)
+
 ## TL;DR
 
 No installation required. Simply run the following command in your WSL terminal:
