@@ -1,7 +1,7 @@
 {
   "name": "expose-wsl",
-  "version": "1.0.0",
-  "description": "The simplest way to expose your WSL to the local network",
+  "version": "1.0.1",
+  "description": "The simplest way to expose apps running on WSL to local network devices",
   "main": "run.js",
   "type": "module",
   "engines": {
@@ -24,6 +24,6 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^18.11.13"
+    "@types/node": "^18.11.14"
   }
 }
