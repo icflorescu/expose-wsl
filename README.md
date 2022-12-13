@@ -5,7 +5,7 @@
 
 The simplest way to expose apps running on WSL to local network devices.
 
-![expose-wsl](https://user-images.githubusercontent.com/581999/207396848-6092d5f9-ebcd-4d21-8c2c-48009c3ec721.png)
+![expose-wsl](https://user-images.githubusercontent.com/581999/207399663-b72d4fff-4761-45cb-942b-e9cbff4871e4.png)
 
 ## TL;DR
 
