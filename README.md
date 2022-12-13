@@ -35,11 +35,13 @@ It automates the process of downloading the **WSLHostPatcher** release, decompre
 
 ## Requirements
 
-This tool should work on any Windows 10 machine running WSL with Node.js `>=14.8.0` installed.
+**Expose-WSL** should work on any Windows machine running WSL with Node.js `>=14.8.0` installed.
 
 ## Caveats
 
-Understand that this tool is not a replacement for a proper network configuration. It patches your WSL machine to expose it to the local network, which is not advisable for production environments. I canot imagine a healthy reason to use and expose WSL in production, but if you do, please make sure you know what you're doing.
+Please understand that this tool is not a replacement for a proper network configuration.  
+It patches your WSL machine to expose it to the local network, which is not advisable for production environments.  
+I canot imagine a healthy reason to use and expose WSL in production, but if you do, please make sure you know what you're doing.
 
 For some reason, the command doesn't work from the integrated terminal in VSCode. It must be run from a regular terminal (such as [Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701), which I assume you're familiar with and already using if you're reading this).
 
