@@ -31,7 +31,7 @@ Here's where **Expose-WSL** comes into play.
 ## How?
 
 This tool uses the excellent [WSLHostPatcher](https://github.com/CzBiX/WSLHostPatcher) built by [CzBiX](https://github.com/CzBiX).  
-It automates the process of downloading the **WSLHostPatcher** release, decompressing the binary, running it to patch your WSL and giving you the most probable IP address of your WSL machine that can be accessed from the local network.
+It automates the process of downloading the **WSLHostPatcher** release, decompressing the binary, running it to patch your WSL, and running a PowerShell script to display the IP address of your machine.
 
 ## Requirements
 
