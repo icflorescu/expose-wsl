@@ -1,37 +1,14 @@
 #!/usr/bin/env node
+import figlet from 'figlet';
 import { execSync } from 'node:child_process';
-import { createWriteStream, existsSync, mkdirSync, unlink } from 'node:fs';
-import { get } from 'node:https';
+import { existsSync, mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-
-/**
- * @param {string} from
- * @param {string} to
- * @returns {Promise<void>}
- */
-function download(from, to) {
-  return new Promise((resolve, reject) => {
-    var onError = function (e) {
-      unlink(to);
-      reject(e);
-    };
-    get(from, function (response) {
-      if (response.statusCode >= 200 && response.statusCode < 300) {
-        var fileStream = createWriteStream(to);
-        fileStream.on('error', onError);
-        fileStream.on('close', resolve);
-        response.pipe(fileStream);
-      } else if (response.headers.location) {
-        resolve(download(response.headers.location, to));
-      } else {
-        reject(new Error(response.statusCode + ' ' + response.statusMessage));
-      }
-    }).on('error', onError);
-  });
-}
+import delay from './utils/delay.js';
+import download from './utils/download.js';
 
 const folder = `${tmpdir()}/expose-wsl`;
 
+console.log(figlet.textSync('expose-wsl'), '\n');
 if (!existsSync(folder)) {
   process.stdout.write('WSLHostPatcher not found, downloading... ');
   mkdirSync(folder);
@@ -43,12 +20,13 @@ if (!existsSync(folder)) {
   execSync(`unzip ${folder}/WSLHostPatcher.zip -d ${folder}`);
   execSync(`rm ${folder}/WSLHostPatcher.zip`);
   execSync(`chmod +x ${folder}/WSLHostPatcher.exe`);
+  await delay(100);
   console.log('done.');
 }
 process.stdout.write('Patching WSL... ');
 execSync(`${folder}/WSLHostPatcher.exe`);
 console.log('done.');
-process.stdout.write('WSL should be exposed at: ');
+process.stdout.write('WSL should be accessible at: ');
 execSync(
   "powershell.exe 'Get-NetIPAddress -AddressFamily IPv4 -InterfaceIndex $(Get-NetConnectionProfile | Select-Object -ExpandProperty InterfaceIndex) | Select-Object -ExpandProperty IPAddress'",
   { stdio: 'inherit' }
