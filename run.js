@@ -3,12 +3,17 @@ import figlet from 'figlet';
 import { execSync } from 'node:child_process';
 import { existsSync, mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import delay from './utils/delay.js';
 import download from './utils/download.js';
 
 const folder = `${tmpdir()}/expose-wsl`;
 
 console.log(figlet.textSync('expose-wsl'), '\n');
+
+console.log(dirname(fileURLToPath(import.meta.url)));
+
 if (!existsSync(folder)) {
   process.stdout.write('WSLHostPatcher not found, downloading... ');
   mkdirSync(folder);
