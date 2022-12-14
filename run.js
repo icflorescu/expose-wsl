@@ -22,12 +22,13 @@ if (!existsSync(`${folder}/WSLHostPatcher.exe`)) {
   execSync(`rm ${folder}/WSLHostPatcher.zip`);
   execSync(`chmod +x ${folder}/WSLHostPatcher.exe`);
   await delay(100);
-  console.log('done.');
+  console.log('done ✔️');
 }
 process.stdout.write('Patching WSL... ');
 execSync(`${folder}/WSLHostPatcher.exe`);
-console.log('done.');
-process.stdout.write('WSL should be accessible at: ');
+console.log('done ✔️');
+console.log('💡 Make sure to restart your server application(s) before trying to access them!\n');
+process.stdout.write('🎉 WSL should be accessible at: ');
 execSync(
   "powershell.exe 'Get-NetIPAddress -AddressFamily IPv4 -InterfaceIndex $(Get-NetConnectionProfile | Select-Object -ExpandProperty InterfaceIndex) | Select-Object -ExpandProperty IPAddress'",
   { stdio: 'inherit' }
