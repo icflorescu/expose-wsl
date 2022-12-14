@@ -2,6 +2,23 @@
   "name": "expose-wsl",
   "version": "1.0.7",
   "description": "The simplest way to expose apps running on WSL to local network devices",
+  "keywords": [
+    "WSL",
+    "CLI",
+    "nwtwork",
+    "workflow",
+    "devtools"
+  ],
+  "repository": "icflorescu/expose-wsl",
+  "bugs": {
+    "url": "https://github.com/icflorescu/expose-wsl/issues"
+  },
+  "author": {
+    "name": "Ionut-Cristian Florescu",
+    "email": "ionut.florescu@gmail.com",
+    "url": "https://github.com/icflorescu"
+  },
+  "license": "ISC",
   "main": "run.js",
   "type": "module",
   "engines": {
@@ -10,19 +27,6 @@
   "bin": {
     "expose-wsl": "run.js"
   },
-  "keywords": [
-    "WSL",
-    "CLI",
-    "nwtwork",
-    "workflow",
-    "devtools"
-  ],
-  "author": {
-    "name": "Ionut-Cristian Florescu",
-    "email": "ionut.florescu@gmail.com",
-    "url": "https://github.com/icflorescu"
-  },
-  "license": "ISC",
   "dependencies": {
     "figlet": "^1.5.2"
   },
