@@ -15,7 +15,7 @@
 No installation required. Simply run the following command in your WSL terminal **before starting your applications**:
 
 ```bash
-npx expose-wsl
+npx expose-wsl@latest
 ```
 
 ## Why?
@@ -42,8 +42,6 @@ It automates the process of downloading the **WSLHostPatcher** release, decompre
 Please understand that this tool is not a replacement for a proper network configuration.  
 It patches your WSL machine to expose it to the local network, which is not advisable for production environments.  
 I canot imagine a healthy reason to use and expose WSL in production, but if you do, please make sure you know what you're doing.
-
-For some reason, the command doesn't work from the integrated terminal in VSCode. It must be run from a regular terminal (such as [Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701), which I assume you're familiar with and already using if you're reading this).
 
 ## Contributing
 
