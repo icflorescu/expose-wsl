@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import figlet from 'figlet';
 import { execSync } from 'node:child_process';
-import { existsSync, mkdirSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import delay from './utils/delay.js';
@@ -13,7 +13,6 @@ console.log(figlet.textSync('expose-wsl'), '\n');
 
 if (!existsSync(`${folder}/WSLHostPatcher.exe`)) {
   process.stdout.write('WSLHostPatcher not found, downloading... ');
-  mkdirSync(folder);
   await download(
     'https://github.com/CzBiX/WSLHostPatcher/releases/download/v0.1.1/WSLHostPatcher.zip',
     `${folder}/WSLHostPatcher.zip`
