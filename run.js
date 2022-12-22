@@ -12,7 +12,7 @@ const folder = dirname(fileURLToPath(import.meta.url));
 console.log(figlet.textSync('expose-wsl'), '\n');
 
 if (!existsSync(`${folder}/WSLHostPatcher.exe`)) {
-  process.stdout.write('WSLHostPatcher not found, downloading... ');
+  process.stdout.write('⏳ WSLHostPatcher not found, downloading... ');
   await download(
     'https://github.com/CzBiX/WSLHostPatcher/releases/download/v0.1.1/WSLHostPatcher.zip',
     `${folder}/WSLHostPatcher.zip`
@@ -24,7 +24,7 @@ if (!existsSync(`${folder}/WSLHostPatcher.exe`)) {
   await delay(100);
   console.log('done ✔️');
 }
-process.stdout.write('Patching WSL... ');
+process.stdout.write('⏳ Patching WSL... ');
 execSync(`${folder}/WSLHostPatcher.exe`);
 console.log('done ✔️');
 console.log('💡 Make sure to restart your server application(s) before trying to access them!\n');
