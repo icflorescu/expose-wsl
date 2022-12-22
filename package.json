@@ -1,6 +1,6 @@
 {
   "name": "expose-wsl",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "The simplest way to expose apps running on WSL to local network devices",
   "keywords": [
     "WSL",
