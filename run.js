@@ -14,7 +14,7 @@ console.log(figlet.textSync('expose-wsl'), '\n');
 if (!existsSync(`${folder}/WSLHostPatcher.exe`)) {
   process.stdout.write('⏳ WSLHostPatcher not found, downloading... ');
   await download(
-    'https://github.com/CzBiX/WSLHostPatcher/releases/download/v0.1.1/WSLHostPatcher.zip',
+    'https://github.com/CzBiX/WSLHostPatcher/releases/latest/download/WSLHostPatcher.zip',
     `${folder}/WSLHostPatcher.zip`
   );
   process.stdout.write('extracting... ');
