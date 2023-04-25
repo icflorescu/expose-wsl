@@ -1,6 +1,6 @@
 {
   "name": "expose-wsl",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "The simplest way to expose apps running on WSL to local network devices",
   "keywords": [
     "WSL",
@@ -17,6 +17,10 @@
     "name": "Ionut-Cristian Florescu",
     "email": "ionut.florescu@gmail.com",
     "url": "https://github.com/icflorescu"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/icflorescu"
   },
   "license": "ISC",
   "main": "run.js",
