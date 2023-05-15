@@ -1,6 +1,6 @@
 {
   "name": "expose-wsl",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "The simplest way to expose apps running on WSL to local network devices",
   "keywords": [
     "WSL",
@@ -35,7 +35,7 @@
     "figlet": "^1.6.0"
   },
   "devDependencies": {
-    "@types/node": "^20.1.3",
+    "@types/node": "^20.1.4",
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
