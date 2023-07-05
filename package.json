@@ -1,13 +1,15 @@
 {
   "name": "expose-wsl",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "The simplest way to expose apps running on WSL to local network devices",
   "keywords": [
     "WSL",
     "CLI",
     "nwtwork",
     "workflow",
-    "devtools"
+    "devtools",
+    "expo",
+    "remote"
   ],
   "repository": "icflorescu/expose-wsl",
   "bugs": {
