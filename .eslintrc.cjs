@@ -5,13 +5,9 @@ module.exports = {
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
+    sourceType: 'module'
   },
   rules: {
-    indent: ['error', 2],
-    'linebreak-style': ['error', 'unix'],
-    // quotes: ['error', 'single'],
-    'prettier/prettier': ['error', { singleQuote: true }],
-    semi: ['error', 'always'],
-  },
+    'object-shorthand': 'warn'
+  }
 };
