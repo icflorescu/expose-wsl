@@ -12,7 +12,7 @@ const dir = dirname(fileURLToPath(import.meta.url));
 
 console.log(figlet.textSync('expose-wsl'), '\n');
 
-// Ensure cleanup
+// Cleanup leftovers from previous runs, if any
 if (existsSync(`${dir}/WSLHostPatcher.zip`)) unlinkSync(`${dir}/WSLHostPatcher.zip`);
 if (existsSync(`${dir}/WSLHostPatch.dll`)) unlinkSync(`${dir}/WSLHostPatch.dll`);
 if (existsSync(`${dir}/WSLHostPatcher.exe`)) unlinkSync(`${dir}/WSLHostPatcher.exe`);
@@ -24,13 +24,22 @@ await download(
 );
 process.stdout.write('extracting... ');
 await extract(`${dir}/WSLHostPatcher.zip`, { dir });
+
+// Remove the zip file
 unlinkSync(`${dir}/WSLHostPatcher.zip`);
+
+// Make sure the patcher is executable
 chmodSync(`${dir}/WSLHostPatcher.exe`, 0o755);
-await delay(100); // wait a bit...
+
+// Wait a bit to make sure the patcher is ready, then run it
+await delay(100);
 process.stdout.write('running... ');
 execSync(`${dir}/WSLHostPatcher.exe`);
+
+// Remove the patcher files
 unlinkSync(`${dir}/WSLHostPatcher.exe`);
 unlinkSync(`${dir}/WSLHostPatch.dll`);
+
 console.log('done ✔️');
 console.log('💡 Make sure to restart your server application(s) before trying to access them!\n');
 process.stdout.write('🎉 WSL should be accessible at: ');
