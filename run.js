@@ -12,21 +12,25 @@ const dir = dirname(fileURLToPath(import.meta.url));
 
 console.log(figlet.textSync('expose-wsl'), '\n');
 
-if (!existsSync(`${dir}/WSLHostPatcher.exe`)) {
-  process.stdout.write('⏳ WSLHostPatcher not found, downloading... ');
-  await download(
-    'https://github.com/CzBiX/WSLHostPatcher/releases/latest/download/WSLHostPatcher.zip',
-    `${dir}/WSLHostPatcher.zip`
-  );
-  process.stdout.write('extracting... ');
-  await extract(`${dir}/WSLHostPatcher.zip`, { dir });
-  unlinkSync(`${dir}/WSLHostPatcher.zip`);
-  chmodSync(`${dir}/WSLHostPatcher.exe`, 0o755);
-  await delay(100); // wait a bit...
-  console.log('done ✔️');
-}
-process.stdout.write('⏳ Patching WSL... ');
+// Ensure cleanup
+if (existsSync(`${dir}/WSLHostPatcher.zip`)) unlinkSync(`${dir}/WSLHostPatcher.zip`);
+if (existsSync(`${dir}/WSLHostPatch.dll`)) unlinkSync(`${dir}/WSLHostPatch.dll`);
+if (existsSync(`${dir}/WSLHostPatcher.exe`)) unlinkSync(`${dir}/WSLHostPatcher.exe`);
+
+process.stdout.write('⏳ Downloading WSLHostPatcher... ');
+await download(
+  'https://github.com/CzBiX/WSLHostPatcher/releases/latest/download/WSLHostPatcher.zip',
+  `${dir}/WSLHostPatcher.zip`
+);
+process.stdout.write('extracting... ');
+await extract(`${dir}/WSLHostPatcher.zip`, { dir });
+unlinkSync(`${dir}/WSLHostPatcher.zip`);
+chmodSync(`${dir}/WSLHostPatcher.exe`, 0o755);
+await delay(100); // wait a bit...
+process.stdout.write('running... ');
 execSync(`${dir}/WSLHostPatcher.exe`);
+unlinkSync(`${dir}/WSLHostPatcher.exe`);
+unlinkSync(`${dir}/WSLHostPatch.dll`);
 console.log('done ✔️');
 console.log('💡 Make sure to restart your server application(s) before trying to access them!\n');
 process.stdout.write('🎉 WSL should be accessible at: ');
