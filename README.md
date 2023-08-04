@@ -4,8 +4,8 @@
 [![License][license-image]][license-url]
 [![Downloads][downloads-image]][npm-url]
 [![Language][language-image]][repo-url]
+[![Closed issues][closed-issues-image]][closed-issues-url]
 [![Sponsor the author][sponsor-image]][sponsor-url]
-
 
 > Probably the simplest way to expose apps running on WSL to local network devices.
 
@@ -68,8 +68,10 @@ The [ISC License](https://github.com/icflorescu/expose-wsl/blob/master/LICENSE).
 [license-image]: http://img.shields.io/npm/l/expose-wsl.svg?style=flat-square
 [downloads-image]: http://img.shields.io/npm/dm/expose-wsl.svg?style=flat-square
 [language-image]: https://img.shields.io/github/languages/top/icflorescu/expose-wsl?style=flat-square
+[closed-issues-image]: https://img.shields.io/github/issues-closed-raw/icflorescu/expose-wsl?style=flat-square
 [npm-url]: https://npmjs.org/package/expose-wsl
 [repo-url]: https://github.com/icflorescu/expose-wsl
+[closed-issues-url]: https://github.com/icflorescu/expose-wsl/issues?q=is%3Aissue+is%3Aclosed
 [license-url]: LICENSE
 [sponsor-image]: https://img.shields.io/badge/sponsor-violet?style=flat-square
 [sponsor-url]: https://github.com/sponsors/icflorescu
