@@ -1,11 +1,13 @@
 {
   "name": "expose-wsl",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "The simplest way to expose apps running on WSL to local network devices",
   "keywords": [
-    "WSL",
-    "CLI",
-    "nwtwork",
+    "windows",
+    "wsl",
+    "wsl2",
+    "cli",
+    "network",
     "workflow",
     "devtools",
     "expo",
@@ -49,6 +51,6 @@
     "vitest": "^0.34.1"
   },
   "scripts": {
-    "test": "vitest"
+    "test": "vitest --run"
   }
 }
