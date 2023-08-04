@@ -11,7 +11,10 @@
     "expo",
     "remote"
   ],
-  "repository": "icflorescu/expose-wsl",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icflorescu/expose-wsl.git"
+  },
   "bugs": {
     "url": "https://github.com/icflorescu/expose-wsl/issues"
   },
