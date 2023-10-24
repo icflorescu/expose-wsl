@@ -12,10 +12,14 @@ const dir = dirname(fileURLToPath(import.meta.url));
 
 console.log(figlet.textSync('expose-wsl'), '\n');
 
-// Cleanup leftovers from previous runs, if any
-if (existsSync(`${dir}/WSLHostPatcher.zip`)) unlinkSync(`${dir}/WSLHostPatcher.zip`);
-if (existsSync(`${dir}/WSLHostPatch.dll`)) unlinkSync(`${dir}/WSLHostPatch.dll`);
-if (existsSync(`${dir}/WSLHostPatcher.exe`)) unlinkSync(`${dir}/WSLHostPatcher.exe`);
+// Try cleanup leftovers from previous runs, if any
+try {
+  if (existsSync(`${dir}/WSLHostPatcher.zip`)) unlinkSync(`${dir}/WSLHostPatcher.zip`);
+  if (existsSync(`${dir}/WSLHostPatch.dll`)) unlinkSync(`${dir}/WSLHostPatch.dll`);
+  if (existsSync(`${dir}/WSLHostPatcher.exe`)) unlinkSync(`${dir}/WSLHostPatcher.exe`);
+} catch {
+  /* ignore */
+}
 
 let success = false;
 try {
@@ -40,10 +44,16 @@ try {
 
   console.log('done ✔️');
   process.stdout.write('🎉 WSL should be accessible at: ');
-  execSync(
-    "powershell.exe 'Get-NetIPAddress -AddressFamily IPv4 -InterfaceIndex $(Get-NetConnectionProfile | Select-Object -ExpandProperty InterfaceIndex) | Select-Object -ExpandProperty IPAddress'",
-    { stdio: 'inherit' }
-  );
+  try {
+    execSync(
+      "powershell.exe 'Get-NetIPAddress -AddressFamily IPv4 -InterfaceIndex $(Get-NetConnectionProfile | Select-Object -ExpandProperty InterfaceIndex) | Select-Object -ExpandProperty IPAddress'",
+      { stdio: 'inherit' }
+    );
+  } catch (err) {
+    console.log(
+      "💡 The patcher worked, but powershell.exe could not be called to determine the IP address of the WSL interface; you'll have to figure it out yourself."
+    );
+  }
   console.log('💡 Make sure to restart your server application(s) before trying to access them!');
   success = true;
 } catch (err) {
@@ -52,8 +62,12 @@ try {
   console.log(err.stderr ? err.stderr.toString() : err);
 } finally {
   // Remove the patcher files
-  unlinkSync(`${dir}/WSLHostPatcher.exe`);
-  unlinkSync(`${dir}/WSLHostPatch.dll`);
+  try {
+    unlinkSync(`${dir}/WSLHostPatcher.exe`);
+    unlinkSync(`${dir}/WSLHostPatch.dll`);
+  } catch {
+    /* ignore */
+  }
 }
 
 process.exit(success ? 0 : 1);
